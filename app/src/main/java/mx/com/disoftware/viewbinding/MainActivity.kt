@@ -2,6 +2,9 @@ package mx.com.disoftware.viewbinding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.commit
 import mx.com.disoftware.viewbinding.databinding.ActivityMainBinding
 import mx.com.disoftware.viewbinding.databinding.FragmentViewBindingBinding
 
@@ -27,14 +30,14 @@ class MainActivity : AppCompatActivity() {
          * fragmento abarque todo el activity.
          * https://developer.android.com/guide/components/fragments?hl=es
          */
-
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-
         activityMainBinding.buttonActivityMain.setOnClickListener {
-            val fragment = ViewBindingFragment()
-            fragmentTransaction.add(R.id.fragment_container, fragment)
-            fragmentTransaction.commit()
+            activityMainBinding.fragmentContainer.visibility = View.VISIBLE
+            activityMainBinding.buttonActivityMain.visibility = View.GONE
+            activityMainBinding.textViewMsg.visibility = View.GONE
+            supportFragmentManager.commit {
+                //this.add(....) es igual si se omite el this
+                add(activityMainBinding.fragmentContainer.id, ViewBindingFragment())
+            }
         }
 
     }

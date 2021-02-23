@@ -22,13 +22,12 @@
         android:id="@+id/button_activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Binding en Fragmento"/>
+        android:text="View Binding en Fragmento" />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
-        android:name="mx.com.disoftware.viewbinding.ViewBindingFragment"
         android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>
