@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
             activityMainBinding.textViewMsg.visibility = View.GONE
             supportFragmentManager.commit {
                 //this.add(....) es igual si se omite el this
+                addToBackStack("ViewBindingFragment")
                 add(activityMainBinding.fragmentContainer.id, ViewBindingFragment())
             }
         }

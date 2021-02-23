@@ -29,7 +29,7 @@ class ViewBindingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var acum = 0
+        var acum = 1
         viewBindingFragment.textViewMsgFragment.text = "View Binding en Fragmentos"
         viewBindingFragment.buttonFragment.setOnClickListener {
             viewBindingFragment.textViewMsgFragment.text = "me has presionado ${acum++}"
